@@ -103,12 +103,12 @@ function Tech(): JSX.Element {
       if (count === 1) {
         gsap.fromTo(
           '#tech_left',
-          { autoAlpha: 1, x: -200, opacity: 0 },
+          { autoAlpha: 1, x: -400, opacity: 0 },
           { autoAlpha: 1, x: 0, duration: 0.7, opacity: 1 }
         );
         gsap.fromTo(
           '#tech_right',
-          { autoAlpha: 1, x: 200, opacity: 0 },
+          { autoAlpha: 1, x: 400, opacity: 0 },
           { autoAlpha: 1, x: 0, duration: 0.7, opacity: 1 }
         );
       }
@@ -147,7 +147,7 @@ function Tech(): JSX.Element {
     },
   ];
   return (
-    <div className="h-620 w-1280 m-auto">
+    <div className="w-1280 m-auto">
       <div className="uppercase text-[#ffe102] mb-[2em] pt-[64px] text-[1rem] bold text-center">
         tech
       </div>
