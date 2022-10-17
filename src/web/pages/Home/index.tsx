@@ -96,34 +96,29 @@ function Features(): JSX.Element {
 }
 
 function Tech(): JSX.Element {
-  useEffect(() => {
-    let count = 0;
-    const gsapCallback = () => {
-      if (count >= 2) return;
-      if (count === 1) {
-        gsap.fromTo(
-          '#tech_left',
-          { autoAlpha: 1, x: -400, opacity: 0 },
-          { autoAlpha: 1, x: 0, duration: 0.7, opacity: 1 }
-        );
-        gsap.fromTo(
-          '#tech_right',
-          { autoAlpha: 1, x: 400, opacity: 0 },
-          { autoAlpha: 1, x: 0, duration: 0.7, opacity: 1 }
-        );
-      }
-      count++;
-    };
-    const options = {
-      // root: document.querySelector('#scrollArea'),
-      rootMargin: '0px',
-      threshold: 0.1,
-    };
+  // useEffect(() => {
+  //   let count = 0;
+  //   const gsapCallback = () => {
+  //     if (count >= 2) return;
+  //     if (count === 1) {
+  //       gsap.fromTo(
+  //         '#tech_img',
+  //         { autoAlpha: 1, y: 200, opacity: 0 },
+  //         { autoAlpha: 1, y: 0, duration: 0.7, opacity: 1 }
+  //       );
+  //     }
+  //     count++;
+  //   };
+  //   const options = {
+  //     // root: document.querySelector('#scrollArea'),
+  //     rootMargin: '0px',
+  //     threshold: 0.5,
+  //   };
 
-    const observer = new IntersectionObserver(gsapCallback, options);
-    const target = document.querySelector('#tech_left') as HTMLElement;
-    observer.observe(target);
-  }, []);
+  //   const observer = new IntersectionObserver(gsapCallback, options);
+  //   const target = document.querySelector('#tech_img') as HTMLElement;
+  //   observer.observe(target);
+  // }, []);
   const techs: { icon: string; title: string; desc: string }[] = [
     {
       icon: 'public/tech_item1.png',
@@ -151,8 +146,8 @@ function Tech(): JSX.Element {
       <div className="uppercase text-[#ffe102] mb-[2em] pt-[64px] text-[1rem] bold text-center">
         tech
       </div>
-      <div className="flex">
-        <div id="tech_left" className="flex flex-1 flex-col">
+      <div className="flex items-center justify-center">
+        <div id="tech_left" className="flex xl:flex-1 flex-col">
           {techs.slice(0, 2).map(item => {
             return (
               <div key={item.title} className="flex flex-1 flex-col items-center">
@@ -167,10 +162,10 @@ function Tech(): JSX.Element {
             );
           })}
         </div>
-        <div>
-          <img className="w-456 flex-1" src="public/tech_center.png" />
+        <div id="tech_img" className="xl:flex-1">
+          <img className="w-456" src="public/tech_center.png" />
         </div>
-        <div id="tech_right" className="flex flex-1 flex-col">
+        <div id="tech_right" className="flex xl:flex-1 flex-col">
           {techs.slice(2).map(item => {
             return (
               <div key={item.title} className="flex flex-1 flex-col items-center">
