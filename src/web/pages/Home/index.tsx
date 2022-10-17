@@ -8,16 +8,16 @@ function FirstSlide(): JSX.Element {
     gsap.fromTo('#slogan', { autoAlpha: 0, x: -100 }, { autoAlpha: 1, x: 0, duration: 1 });
   }, []);
   return (
-    <Container className="flex h-620 justify-between items-center w-1280 m-auto text-[#1a2239]">
-      <div id="slogan" className="w-586">
-        <div className="w-586 xl:text-[3.75rem] leading-[1.2] text-[#fff]">
+    <Container className="flex pl-20 pr-20 xl:pl-0 xl:pr-0 pt-50 pb-50 xl:pt-0 xl:pb-0 xl:h-620 justify-between items-center w-full xl:w-1280 m-auto text-[#1a2239]">
+      <div id="slogan" className="w-1/2 xl:w-586">
+        <div className="w-full xl:text-[3.75rem] leading-[1.2] text-[#fff]">
           The DNS <span className="text-[#03AB55]">BRIDGE</span> for web2 to web3.
         </div>
-        <div className="w-586 h-64 xl:text-[1.25rem] text-[#AEB0B4]">
+        <div className="w-full h-64 xl:text-[1.25rem] text-[#AEB0B4]">
           Decentralized and Native DNS Service for both Web2 and Web3.
         </div>
       </div>
-      <img className="w-586" src="/public/home_big_img.png" />
+      <img className="w-1/2 xl:w-586" src="/public/home_big_img.png" />
     </Container>
   );
 }
@@ -72,11 +72,11 @@ function Features(): JSX.Element {
   ];
 
   return (
-    <div className="h-315 w-1280 m-auto bg-[#212B46]">
+    <div className="xl:h-315 xl:w-1280 pb-20 xl:pb-0 xl:m-auto bg-[#212B46] ">
       <div className="uppercase text-[#ffe102] mb-[0.35em] pt-[64px] text-[1rem] bold text-center">
         feature
       </div>
-      <div className="flex" id="feature-items">
+      <div className="xl:flex" id="feature-items">
         {features.map(item => {
           return (
             <div key={item.title} className="flex flex-1 flex-col items-center">
@@ -147,7 +147,7 @@ function Tech(): JSX.Element {
     },
   ];
   return (
-    <div className="w-1280 m-auto">
+    <div className="xl:w-1280 m-auto">
       <div className="uppercase text-[#ffe102] mb-[2em] pt-[64px] text-[1rem] bold text-center">
         tech
       </div>
@@ -193,7 +193,6 @@ function Tech(): JSX.Element {
 function RoadMap(): JSX.Element {
   useEffect(() => {
     const gsapCallback = item => {
-      console.log('item', item);
       gsap.fromTo(
         item[0].target,
         { autoAlpha: 1, x: -200, opacity: 0 },
@@ -204,7 +203,6 @@ function RoadMap(): JSX.Element {
       rootMargin: '0px',
       threshold: 0.1,
     };
-
     const observer = new IntersectionObserver(gsapCallback, options);
     for (let i = 0; i <= 7; i++) {
       const target = document.querySelector(`#roadmap_${i}`) as HTMLElement;
@@ -246,7 +244,7 @@ function RoadMap(): JSX.Element {
     },
   ];
   return (
-    <div className="w-1280 m-auto">
+    <div className="xl:w-1280 m-auto">
       <div className="uppercase text-[#ffe102] mb-[2em] pt-[64px] text-[1rem] bold text-center">
         roadmap
       </div>
@@ -257,12 +255,12 @@ function RoadMap(): JSX.Element {
               <div
                 id={`roadmap_${index}`}
                 key={item.time}
-                className="flex w-295 h-98 items-center justify-between ml-285"
+                className="flex w-full xl:w-295 h-98 items-center justify-center xl:justify-between xl:ml-285"
               >
-                <div className="w-10 h-10 bg-[#00ab55] rounded-[50%]"></div>
-                <div className="flex flex-col w-250">
-                  <div className="text-[1rem] text-[#aeb0b4] leading-[1.75]">{item.time}</div>
-                  <div className="text-[1.25rem] text-[#fff] leading-[1.6]">{item.desc}</div>
+                <div className="w-10 h-10 bg-[#00ab55] rounded-[50%] mr-20 xl:mr-0"></div>
+                <div className="flex flex-col xl:w-250">
+                  <div className="xl:text-[1rem] text-[#aeb0b4] leading-[1.75]">{item.time}</div>
+                  <div className="xl:text-[1.25rem] text-[#fff] leading-[1.6]">{item.desc}</div>
                 </div>
               </div>
             );
@@ -271,17 +269,17 @@ function RoadMap(): JSX.Element {
               <div
                 id={`roadmap_${index}`}
                 key={item.time}
-                className="flex w-295 h-98 items-center justify-between mr-285"
+                className="flex w-full xl:w-295 xl:h-98 items-center justify-center xl:justify-between xl:mr-285"
               >
-                <div className="flex flex-col w-250">
-                  <div className="text-[1rem] text-[#aeb0b4] leading-[1.75] text-right">
+                <div className="flex flex-col xl:w-250">
+                  <div className="xl:text-[1rem] text-[#aeb0b4] leading-[1.75] text-right">
                     {item.time}
                   </div>
-                  <div className="text-[1.25rem] text-[#fff] leading-[1.6] text-right">
+                  <div className="xl:text-[1.25rem] text-[#fff] leading-[1.6] text-right">
                     {item.desc}
                   </div>
                 </div>
-                <div className="w-10 h-10 bg-[#00ab55] rounded-[50%]"></div>
+                <div className="w-10 h-10 bg-[#00ab55] rounded-[50%] ml-20 xl:ml-0"></div>
               </div>
             );
           }

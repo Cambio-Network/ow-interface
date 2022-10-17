@@ -11,9 +11,9 @@ const Header = () => {
   const handleContactUs = () => {};
 
   return (
-    <TopHeader className="h-58">
-      <div className="w-1280  h-full flex items-center m-auto">
-        <div className="w-1280 h-full flex items-center ">
+    <TopHeader className="h-58 pl-20 pr-20 xl:pl-0 xl:pr-0">
+      <div className="sm:w-full xl:w-1280 h-full flex items-center justify-between m-auto">
+        <div className="h-full flex items-center ">
           <img className="w-32 mr-15" src="public/logo.png" />
           <div className="text-[16px] text-[#fff]">Cambio Network</div>
         </div>
