@@ -239,7 +239,7 @@ function RoadMap(): JSX.Element {
     },
   ];
   return (
-    <div className="xl:w-1280 m-auto">
+    <div className="xl:w-1280 m-auto pb-[3rem]">
       <div className="uppercase text-[#ffe102] mb-[2em] pt-[64px] text-[1rem] bold text-center">
         roadmap
       </div>
@@ -284,6 +284,25 @@ function RoadMap(): JSX.Element {
   );
 }
 
+function Contact(): JSX.Element {
+  return (
+    <div className="pb-[3rem]">
+      <div className="border-t border-[#000000] text-[3rem] text-center text-[#fff] pt-[3rem]">
+        If you have any question, please contact us by email
+      </div>
+      <div className="text-[1.25rem] text-center text-[#AEB0B4]">support@cambio.network</div>
+    </div>
+  );
+}
+
+function Bottom(): JSX.Element {
+  return (
+    <div className="text-[0.875rem] text-[#AEB0B4] text-center pt-[16px] pb-[16px]">
+      © 2022 cambio.network
+    </div>
+  );
+}
+
 const Home = (): JSX.Element => {
   useEffect(() => {}, []);
   return (
@@ -300,6 +319,12 @@ const Home = (): JSX.Element => {
       </div>
       <div className="w-full bg-[#1B2238]">
         <RoadMap />
+      </div>
+      <div className="w-full bg-[#1B2238]">
+        <Contact />
+      </div>
+      <div className="w-full bg-[#212B46]">
+        <Bottom />
       </div>
     </>
   );
