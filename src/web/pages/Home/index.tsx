@@ -286,18 +286,20 @@ function RoadMap(): JSX.Element {
 
 function Contact(): JSX.Element {
   return (
-    <div className="pb-[3rem]">
-      <div className="border-t border-[#000000] text-[3rem] text-center text-[#fff] pt-[3rem]">
+    <div className="pb-[3rem] pt-[3rem] border-t border-[#000000]">
+      <div className="text-[1rem] xl:text-[3rem] text-center text-[#fff]">
         If you have any question, please contact us by email
       </div>
-      <div className="text-[1.25rem] text-center text-[#AEB0B4]">support@cambio.network</div>
+      <div className="text-[0.25rem] xl:text-[1.25rem] text-center text-[#AEB0B4]">
+        support@cambio.network
+      </div>
     </div>
   );
 }
 
 function Bottom(): JSX.Element {
   return (
-    <div className="text-[0.875rem] text-[#AEB0B4] text-center pt-[16px] pb-[16px]">
+    <div className="h-60 leading-[60px] text-[0.875rem] text-[#AEB0B4] text-center">
       © 2022 cambio.network
     </div>
   );
