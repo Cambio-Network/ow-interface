@@ -8,7 +8,12 @@ const ButtonStyle = {
 const Header = () => {
   const navigate = useNavigate();
 
-  const handleContactUs = () => {};
+  const handleContactUs = () => {
+    window.scrollTo({
+      top: 10000,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <TopHeader className="h-58 pl-20 pr-20 xl:pl-0 xl:pr-0">

@@ -1,14 +1,15 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Container } from './style';
 import Header from '@components/Header';
 
 function FirstSlide(): JSX.Element {
   useEffect(() => {
-    gsap.fromTo('#slogan', { autoAlpha: 0, x: -100 }, { autoAlpha: 1, x: 0, duration: 1 });
+    gsap.fromTo('#slogan', { autoAlpha: 0, x: -150 }, { autoAlpha: 1, x: 0, duration: 1 });
+    gsap.fromTo('#big_img', { autoAlpha: 0, x: 150 }, { autoAlpha: 1, x: 0, duration: 1 });
   }, []);
   return (
-    <Container className="flex pl-20 pr-20 xl:pl-0 xl:pr-0 pt-50 pb-50 xl:pt-0 xl:pb-0 xl:h-620 justify-between items-center w-full xl:w-1280 m-auto text-[#1a2239]">
+    <Container className="bg-[#1a2239] flex pl-20 pr-20 xl:pl-0 xl:pr-0 pt-50 pb-50 xl:pt-0 xl:pb-0 xl:h-620 justify-between items-center w-full xl:w-1280 m-auto text-[#1a2239] xl:min-h-screen">
       <div id="slogan" className="w-1/2 xl:w-586">
         <div className="w-full xl:text-[3.75rem] leading-[1.2] text-[#fff]">
           The DNS <span className="text-[#03AB55]">BRIDGE</span> for web2 to web3.
@@ -17,7 +18,7 @@ function FirstSlide(): JSX.Element {
           Decentralized and Native DNS Service for both Web2 and Web3.
         </div>
       </div>
-      <img className="w-1/2 xl:w-586" src="/public/home_big_img.png" />
+      <img id="big_img" className="w-1/2 xl:w-586" src="/public/home_big_img.png" />
     </Container>
   );
 }
@@ -79,7 +80,7 @@ function Features(): JSX.Element {
       <div className="xl:flex" id="feature-items">
         {features.map(item => {
           return (
-            <div key={item.title} className="flex flex-1 flex-col items-center">
+            <div key={item.title} className="flex flex-1 flex-col items-center mb-30 xl:mb-0">
               <div className="w-60 h-60 mb-[1rem] rounded-[30px] bg-[#233847] flex justify-center items-center">
                 <img className="w-24 h-24" src={item.icon} />
               </div>
@@ -150,7 +151,7 @@ function Tech(): JSX.Element {
         <div id="tech_left" className="flex xl:flex-1 flex-col">
           {techs.slice(0, 2).map(item => {
             return (
-              <div key={item.title} className="flex flex-1 flex-col items-center">
+              <div key={item.title} className="flex flex-1 flex-col items-center pb-50">
                 <div className="w-60 h-60 mb-[1rem] rounded-[30px] bg-[#04AB55] flex justify-center items-center">
                   <img className="w-24 h-24" src={item.icon} />
                 </div>
@@ -168,7 +169,7 @@ function Tech(): JSX.Element {
         <div id="tech_right" className="flex xl:flex-1 flex-col">
           {techs.slice(2).map(item => {
             return (
-              <div key={item.title} className="flex flex-1 flex-col items-center">
+              <div key={item.title} className="flex flex-1 flex-col items-center pb-50">
                 <div className="w-60 h-60 mb-[1rem] rounded-[30px] bg-[#04AB55] flex justify-center items-center">
                   <img className="w-24 h-24" src={item.icon} />
                 </div>
@@ -306,9 +307,13 @@ function Bottom(): JSX.Element {
 }
 
 const Home = (): JSX.Element => {
-  useEffect(() => {}, []);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    console.log(containerRef.current);
+  }, []);
+
   return (
-    <>
+    <div ref={containerRef}>
       <Header />
       <div className="w-full bg-[#1a2239]">
         <FirstSlide />
@@ -328,7 +333,7 @@ const Home = (): JSX.Element => {
       <div className="w-full bg-[#212B46]">
         <Bottom />
       </div>
-    </>
+    </div>
   );
 };
 export default memo(Home);

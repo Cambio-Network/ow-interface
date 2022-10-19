@@ -1,8 +1,8 @@
-import { lazy, Suspense } from "react";
-import { Link, RouteObject, Outlet } from "react-router-dom";
-import Loading from "@components/Loading";
-import Home from "@pages/Home";
-import { Nothing, NothingText } from "./style";
+import { lazy, Suspense } from 'react';
+import { Link, RouteObject, Outlet } from 'react-router-dom';
+import Loading from '@components/Loading';
+import Home from '@pages/Home';
+import { Nothing, NothingText } from './style';
 const Routes: RouteObject[] = [];
 const Layout = () => (
   <div className="m-auto">
@@ -26,12 +26,12 @@ function NoMatch() {
 }
 
 const mainRoutes = {
-  path: "/",
+  path: '/',
   element: <Layout />,
   children: [
     { index: true, element: <Home /> },
-    { path: "/loading", element: <Loading /> },
-    { path: "*", element: <NoMatch /> },
+    { path: '/loading', element: <Loading /> },
+    { path: '*', element: <NoMatch /> },
   ],
 };
 
